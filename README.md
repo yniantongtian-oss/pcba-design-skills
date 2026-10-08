@@ -4,18 +4,16 @@
 
 # PCBA Design Skills
 
-**A modular, evidence-gated electronics design team for Codex and Claude Code.**
+**A modular, evidence-gated electronics design toolkit for engineering assistants.**
 
 [![Validate](https://github.com/Keitark/pcba-design-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Keitark/pcba-design-skills/actions/workflows/validate.yml)
 [![Release](https://img.shields.io/github/v/release/Keitark/pcba-design-skills?label=release)](https://github.com/Keitark/pcba-design-skills/releases)
 [![MIT code](https://img.shields.io/badge/code-MIT-55d6be.svg)](LICENSE)
 [![CC BY-SA case study](https://img.shields.io/badge/case%20study-CC%20BY--SA%204.0-f4b942.svg)](ASSET-LICENSES.md)
 [![8 modular skills](https://img.shields.io/badge/skills-8-39c6f4.svg)](#choose-one-skill-or-the-whole-team)
-[![Codex + Claude Code](https://img.shields.io/badge/agents-Codex%20%2B%20Claude%20Code-b795ff.svg)](docs/installation.md)
 [![English](https://img.shields.io/badge/docs-English-8b5cf6.svg)](README.md)
-[![日本語](https://img.shields.io/badge/docs-日本語-e85d75.svg)](README.ja.md)
 
-[日本語](README.ja.md) · [Choose a skill](docs/choose-a-skill.md) · [Install](docs/installation.md) · [Prompts](docs/prompts.md) · [Record a demo](docs/recorded-workflow.md) · [nescart case study](docs/case-study-nescart.md)
+[Choose a skill](docs/choose-a-skill.md) · [Install](docs/installation.md) · [Record a demo](docs/recorded-workflow.md) · [nescart case study](docs/case-study-nescart.md)
 
 </div>
 
@@ -64,44 +62,15 @@ All interoperable artifacts default to `.pcba-workflow/` and use `PASS`,
 placement, routing, BOM, CPL, or browser placement invalidates its downstream
 gates; see [artifact contracts](docs/artifact-contracts.md).
 
-## Quick install
+## Installation and usage
 
-Ask Codex to install one skill:
+The eight roles are available in `.agents/skills/` as self-contained `SKILL.md` specifications. See the [installation guide](docs/installation.md) for environment-specific setup, updates, removal, and verification.
 
-```text
-Use $skill-installer to install schematic-humanizer from
-Keitark/pcba-design-skills at
-.agents/skills/schematic-humanizer, pinned to v1.0.0.
-```
+For a complete workflow, begin with `manage-pcba-program`. Supply the existing circuit description, schematic, netlist, PCB and bill of materials. The manager creates project state, delegates the required reviews, and stops at unresolved engineering or user-approval gates.
 
-Or install the complete team using the commands in the
-[installation guide](docs/installation.md). The guide covers personal and
-project-local installation for both Codex and Claude Code, PowerShell and
-macOS/Linux, updates, removal, and verification.
+For a narrow task, select only the relevant specialty, such as `schematic-humanizer` or `pcb-layout-review`. Do not treat a visual pass, zero pad opens, or a successful upload as final manufacturing validation.
 
-## Start a workflow
-
-Codex:
-
-```text
-Use $manage-pcba-program to inspect the available circuit description,
-schematic/netlist, PCB, and BOM. Create the project state, run only the required
-specialists, and stop at every unresolved engineering or user-approval gate.
-```
-
-Claude Code:
-
-```text
-/manage-pcba-program inspect this project and coordinate the required stages
-through an order-ready manufacturing release.
-```
-
-For focused requests and Japanese examples, use the
-[copy-paste prompt guide](docs/prompts.md).
-
-To preserve a netlist-to-humanized-schematic transformation, layout progress,
-PCBA placement correction, quote/coupon review, and a safe stop immediately
-before order submission, use the [recorded workflow guide](docs/recorded-workflow.md).
+The [recorded workflow guide](docs/recorded-workflow.md) covers preserving connectivity evidence, layout review, assembly placement corrections, and stopping before order submission.
 
 ## Safety and evidence
 
